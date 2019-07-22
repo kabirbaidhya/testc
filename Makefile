@@ -4,16 +4,15 @@ TEST=test
 
 LFLAGS=
 DEBUG=-g
-CFLAGS=-Wall -static -std=c99
+CFLAGS=-Wall -static -std=c99 -Isrc
 SOURCE=$(shell find $(SRC) -type f -name '*.c')
 OBJS=$(SOURCE:.c=.o)
-TESTS=$(shell find $(TEST) -type f -name 'test_*.c')
+TESTS=$(shell find . -type f \( -iname "*.c" ! -iname "main.c" \))
 TESTS_OBJS=$(TESTS:.c=.o)
 
 .PHONY: build debug clean
 
 build: app
-test: CFLAGS += $(DEBUG)
 test: app_test
 
 debug: CFLAGS += $(DEBUG)
