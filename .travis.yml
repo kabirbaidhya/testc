@@ -1,0 +1,5 @@
+compiler:
+  - clang
+  - gcc
+
+script: make test && ./bin/test
