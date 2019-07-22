@@ -1,5 +1,7 @@
+language: c
 compiler:
-  - clang
   - gcc
 
-script: make test && ./bin/test
+script:
+  - make clean build 
+  - make test && ./bin/test
